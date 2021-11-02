@@ -2,10 +2,77 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #ffcc5c;
-  height: 100vh;
 }
 
-/*##ff6f69 red
-  #ffcc5c yellow
-*/
+.App-Content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #ffcc5c;
+  min-height: 90vh;
+  width: 100%;
+  padding: 1rem 0;
+}
+
+.App-File_Section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filename {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.App-Image {
+  margin-top: 2rem;
+  width: 90%;
+  height: 25rem;
+}
+
+.App-Image img {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.App-Spinner {
+  margin-top: 1rem;
+}
+
+.App-Recognition-Results {
+  margin-top: 1rem;
+  width: 90%;
+}
+
+@media screen and (min-width: 500px) {
+  .App-Image {
+    height: 35rem;
+  }
+}
+
+@media screen and (min-width: 680px) {
+  .App-Image {
+    height: 50rem;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .App-Image {
+    height: 70rem;
+  }
+}
+@media screen and (min-width: 1050px) {
+  .App-Content {
+    width: 130rem;
+    margin: 0 auto;
+  }
+  .App-Image {
+    height: 70rem;
+  }
+}

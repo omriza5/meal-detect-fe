@@ -1,9 +1,16 @@
 import React from "react";
+import "./style.css";
 
-const Button = ({ value, onBtnClick }) => {
+const Button = ({ value, onBtnClick, disabled }) => {
   return (
     <div>
-      <input type="submit" onClick={onBtnClick} value={value} />
+      <input
+        className="btn"
+        type="submit"
+        onClick={onBtnClick}
+        value={value}
+        disabled={disabled}
+      />
     </div>
   );
 };

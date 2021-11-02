@@ -1,9 +1,11 @@
 import React from "react";
+import "./style.css";
 
 const FileInput = ({ onFileChange }) => {
   return (
-    <div>
-      <input type="file" onChange={onFileChange} />
+    <div className="fileInput">
+      <input type="file" id="file" onChange={onFileChange} accept="image" />
+      <label htmlFor="file">Choose a photo</label>
     </div>
   );
 };

@@ -1,0 +1,42 @@
+.result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  padding: 0.5rem;
+}
+
+.result p {
+  font-size: 1.8rem;
+}
+
+.result-title {
+  color: #ff6f69;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.list {
+  width: 100%;
+  list-style: circle;
+}
+
+.list-title {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+@media screen and (min-width: 1050px) {
+  .result p {
+    font-size: 2.5rem;
+  }
+}

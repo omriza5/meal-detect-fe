@@ -7,20 +7,30 @@ const Navbar = () => {
       <div className="nav-title">
         <h1>MD APP</h1>
       </div>
-      <nav-links>
-        <a href="http://" className="nav-link">
+      <div className="nav-links">
+        <a
+          className="nav-link"
+          href="https://www.linkedin.com/in/omri-zaher-3059498b/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img
-            src="https://cdn1.iconfinder.com/data/icons/social-media-rounded-corners/512/Rounded_Linkedin2_svg-512.png"
+            src="https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/linkedin-icon-18-256.png"
             alt=""
           />
         </a>
-        <a href="http://" className="nav-link">
+        <a
+          className="nav-link"
+          href="https://github.com/omriza5/meal-detect-fe"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img
-            src="https://cdn4.iconfinder.com/data/icons/liu-square-blac/60/github-square-social-media-256.png"
+            src="https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/github-icon-18-256.png"
             alt=""
           />
         </a>
-      </nav-links>
+      </div>
     </div>
   );
 };

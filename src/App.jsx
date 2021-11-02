@@ -5,16 +5,20 @@ import { resizeImg } from "./service/file";
 import FileInput from "./components/fileInput";
 import Button from "./components/button";
 import Spinner from "./components/spinner";
-import "./App.css";
 import Navbar from "./components/navbar";
+import RecognitionResult from "./components/recognitionResult";
+import "./App.css";
 
 function App() {
-  // axios.post("http://localhost:3001/image").then((d) => console.log(d.data));
   const [mealImage, setMealImage] = useState(null);
+  const [mealData, setMealData] = useState(null);
   const [url, setUrl] = useState("");
   const [isFetching, setIsFetching] = useState(false);
+
   const handleFileChange = (e) => {
     setMealImage(e.target.files[0]);
+    setMealData(null);
+    setUrl("");
   };
 
   const handleUpload = async () => {
@@ -35,36 +39,46 @@ function App() {
           .getDownloadURL();
 
         setUrl(url);
-        setIsFetching(false);
       }
     );
 
     /** set the image size to be max 1MB */
     const newImg = await resizeImg(mealImage);
-    console.log(newImg);
-    console.log(mealImage);
 
     /** send the Img to the backend */
-
     const formData = new FormData();
     formData.append("image", newImg, mealImage.name);
 
-    // const result = await axios.post(
-    //   "http://localhost:3001/uploadImage",
-    //   formData
-    // );
+    const { data } = await axios.post(
+      "https://meal-detect-api.herokuapp.com/uploadImage",
+      formData
+    );
 
-    // console.log(result);
+    setMealData(data);
+    setIsFetching(false);
   };
   return (
     <div className="App">
       <Navbar />
-      <FileInput onFileChange={handleFileChange} />
-      <Button onBtnClick={handleUpload} value="Upload" />
-      {isFetching && <Spinner />}
-      {url && (
-        <img src={url} alt="none" style={{ width: "15rem", height: "15rem" }} />
-      )}
+      <div className="App-Content">
+        <div className="App-File_Section">
+          <FileInput onFileChange={handleFileChange} />
+          <p className="filename">{mealImage && mealImage.name}</p>
+          <Button
+            onBtnClick={handleUpload}
+            value="Upload"
+            disabled={mealImage === null}
+          />
+        </div>
+        <div className="App-Spinner">{isFetching && <Spinner />}</div>
+        <div className="App-Image">{url && <img src={url} alt="none" />}</div>
+
+        {mealData && (
+          <div className="App-Recognition-Results">
+            <RecognitionResult data={mealData} />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
