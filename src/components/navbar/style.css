@@ -1,0 +1,19 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ff6f69;
+  height: 10vh;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.nav-title h1 {
+  color: #fff;
+  font-size: 2.5rem;
+}
+
+.nav-link img {
+  width: 5rem;
+  height: 5rem;
+}
