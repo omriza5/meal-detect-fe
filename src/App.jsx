@@ -49,13 +49,20 @@ function App() {
     const formData = new FormData();
     formData.append("image", newImg, mealImage.name);
 
-    const { data } = await axios.post(
-      "https://meal-detect-api.herokuapp.com/uploadImage",
-      formData
-    );
+    try {
+      const { data } = await axios.post(
+        "https://meal-detect-api.herokuapp.com/uploadImage",
+        formData
+      );
 
-    setMealData(data);
-    setIsFetching(false);
+      setMealData(data);
+      setIsFetching(false);
+    } catch (error) {
+      console.log(
+        "LogMeal Call https://meal-detect-api.herokuapp.com/uploadImage: ",
+        error
+      );
+    }
   };
   return (
     <div className="App">
