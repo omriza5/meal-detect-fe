@@ -49,19 +49,21 @@ function App() {
     const formData = new FormData();
     formData.append("image", newImg, mealImage.name);
 
+    /** send the resized image to logMeal api */
     try {
       const { data } = await axios.post(
-        "https://meal-detect-api.herokuapp.com/uploadImage",
-        formData
+        "https://api.logmeal.es/v2/recognition/dish",
+        formData,
+        {
+          headers: {
+            Authorization: "Bearer b913f829ad9974683f776c0f152acf3b1431ac7e",
+          },
+        }
       );
-
       setMealData(data);
       setIsFetching(false);
     } catch (error) {
-      console.log(
-        "LogMeal Call https://meal-detect-api.herokuapp.com/uploadImage: ",
-        error
-      );
+      console.log(error);
     }
   };
   return (
