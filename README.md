@@ -10,7 +10,7 @@
 
 # How to use:
 
-1. Open the App [Here](#).
+1. Open the App [Here](https://meal-detect-oz.netlify.app/).
 2. Select an existing meal image or take a photo if you are using a phone.
 3. Click the Upload button and wait for the result.
 
